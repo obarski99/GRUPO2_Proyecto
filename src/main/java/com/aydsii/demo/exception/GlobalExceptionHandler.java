@@ -77,4 +77,9 @@ public class GlobalExceptionHandler {
         return error(400, "El cuerpo de la petición no es válido.");
     }
 
+    @ExceptionHandler(AccesoDenegadoException.class)
+    public ResponseEntity<ApiResponse<Void>> handleAccesoDenegado(AccesoDenegadoException ex){
+        return error(403, ex.getMessage());
+    }
+
 }

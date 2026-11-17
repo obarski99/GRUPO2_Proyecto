@@ -1,6 +1,9 @@
 package com.aydsii.demo.repository;
 
 import com.aydsii.demo.model.Asignacion;
+
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +24,6 @@ public interface AsignacionRepository extends JpaRepository<Asignacion, Integer>
             """)
     boolean asignacionValida(@Param("idUsuario") Integer idUsuario,
                              @Param("idPuntoRecoleccion") Integer idPuntoRecoleccion);
+
+    Optional<Asignacion> findByUsuarioIdUsuarioAndPuntoRecoleccionIdPuntoRecoleccion(Integer idUsuario, Integer idPuntoRecoleccion);
 }
